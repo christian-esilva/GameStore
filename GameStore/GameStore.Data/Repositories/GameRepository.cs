@@ -19,9 +19,7 @@ namespace GameStore.Data.Repositories
             _db = new Context();
         }
 
-        public EntityState EntiyState { get; private set; }
-
-        public void Create(Category entity)
+        public void Create(Game entity)
         {
             _db.Games.Add(entity);
             _db.SaveChanges();
@@ -38,27 +36,27 @@ namespace GameStore.Data.Repositories
             _db.Dispose();
         }
 
-        public Category Get(int id)
+        public Game Get(int id)
         {
             return _db.Games.Find(id);
         }
 
-        public List<Category> Get(int skip = 0, int take = 25)
+        public List<Game> Get(int skip = 0, int take = 25)
         {
             return _db.Games.OrderBy(x => x.Title).Skip(skip).Take(take).ToList();
         }
 
-        public Category GetWithCategory(int id)
+        public Game GetWithCategory(int id)
         {
             return _db.Games.Include("Category").Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public List<Category> GetWithCategory(int skip = 0, int take = 30)
+        public List<Game> GetWithCategory(int skip = 0, int take = 30)
         {
             return _db.Games.Include("Category").OrderBy(x => x.Title).Skip(skip).Take(take).ToList();
         }
 
-        public void Update(Category entity)
+        public void Update(Game entity)
         {
             _db.Entry(entity).State = EntityState.Modified;
             _db.SaveChanges();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace GameStore.Domain.Interfaces
 {
-    public interface IGameRepository : IRepository<Category>
+    public interface IGameRepository : IRepository<Game>
     {
-        List<Category> GetWithCategory(int skip = 0, int take = 30);
-        Category GetWithCategory(int id);
+        List<Game> GetWithCategory(int skip = 0, int take = 30);
+        Game GetWithCategory(int id);
     }
 }
