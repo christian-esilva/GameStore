@@ -19,6 +19,7 @@ namespace GameStore.Data.Mappings
             Property(x => x.ReleaseDate).IsRequired();
             Property(x => x.Description).HasMaxLength(255).IsRequired();
             Property(x => x.Platform).IsRequired();
+            Property(x => x.CategoryId).IsRequired();
             HasRequired(x => x.Category).WithMany(x => x.Games).HasForeignKey(x => x.CategoryId);
         }
     }

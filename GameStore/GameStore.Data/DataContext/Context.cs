@@ -18,7 +18,7 @@ namespace GameStore.Data.DataContext
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public DbSet<Game> Games { get; set; }
+        public DbSet<Category> Games { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
