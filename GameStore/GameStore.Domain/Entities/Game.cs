@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameStore.Domain.Entities
 {
-    class Game
+    public class Game
     {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public decimal Price { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string Description { get; set; }
+        public string Platform { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
