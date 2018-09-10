@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameStore.Domain.Enums;
+using System;
 
 namespace GameStore.Domain.Entities
 {
@@ -9,7 +10,8 @@ namespace GameStore.Domain.Entities
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Description { get; set; }
-        public string Platform { get; set; }
+        public EPlatformType Platform { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
     }
 }

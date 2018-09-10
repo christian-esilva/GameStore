@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45CF8B3B-4EF9-47A6-9DFE-5E8854FFA4EC}</ProjectGuid>
+    <ProjectGuid>{7110D321-62AF-4114-B2D9-C616C05FE718}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameStore.Domain</RootNamespace>
-    <AssemblyName>GameStore.Domain</AssemblyName>
+    <RootNamespace>GameStore.Data</RootNamespace>
+    <AssemblyName>GameStore.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,13 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\Game.cs" />
-    <Compile Include="Enums\EPlatformType.cs" />
-    <Compile Include="Interfaces\ICategoryRepository.cs" />
-    <Compile Include="Interfaces\IGameRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="DataContext\Context.cs" />
+    <Compile Include="Mappings\CategoryMap.cs" />
+    <Compile Include="Mappings\GameMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameStore.Domain\GameStore.Domain.csproj">
+      <Project>{45cf8b3b-4ef9-47a6-9dfe-5e8854ffa4ec}</Project>
+      <Name>GameStore.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
